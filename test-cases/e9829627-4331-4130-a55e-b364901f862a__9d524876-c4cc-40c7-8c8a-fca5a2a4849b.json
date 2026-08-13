@@ -1,0 +1,64 @@
+{
+  "id": "9d524876-c4cc-40c7-8c8a-fca5a2a4849b",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "9d524876-c4cc-40c7-8c8a-fca5a2a4849b",
+    "title": "E2E-010: Add multiple products to cart and verify cart count",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Bike Light",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBikeLightSauceLabsBackpack"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Bolt T-Shirt",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBoltTShirtSauceLabsBackpack"
+      },
+      {
+        "id": "s6",
+        "action": "assertText",
+        "targetDescription": "Verify cart badge shows count of 3",
+        "locatorHint": ".shopping_cart_badge",
+        "assertion": "3"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "ab7ae4b0-b052-4c12-ae56-c0f07653667e",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "ab7ae4b0-b052-4c12-ae56-c0f07653667e",
+    "title": "E2E-020: Add all products to cart and verify cart count is 6",
+    "priority": "P2",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Bike Light",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBikeLightSauceLabsBackpack"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Bolt T-Shirt",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBoltTShirtSauceLabsBackpack"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Fleece Jacket",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsFleeceJacketSauceLabsBackpack"
+      },
+      {
+        "id": "s7",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Onesie",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsOnesieSauceLabsBackpack"
+      },
+      {
+        "id": "s8",
+        "action": "assertText",
+        "targetDescription": "Verify cart badge shows count of 5",
+        "locatorHint": ".shopping_cart_badge",
+        "assertion": "5"
+      },
+      {
+        "id": "s9",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s10",
+        "action": "assertCountGreaterThan",
+        "targetDescription": "Verify more than 4 cart items are present",
+        "locatorHint": ".cart_item",
+        "assertion": "4"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

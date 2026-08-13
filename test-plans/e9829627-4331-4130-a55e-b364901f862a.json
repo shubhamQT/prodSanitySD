@@ -1,0 +1,1614 @@
+{
+  "id": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "model": "claude-sonnet-4-6",
+  "createdAt": "2026-08-13T14:01:22.420Z",
+  "plan": {
+    "version": 1,
+    "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+    "cases": [
+      {
+        "id": "dddf70f8-3b5d-43fa-b314-1d363ca002b6",
+        "title": "E2E-001: Login with valid credentials and verify redirect to inventory page",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Fill username field",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "fillUsername",
+            "value": "standard_user"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Fill password field",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "fillPassword",
+            "value": "secret_sauce"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click Login button",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "clickLogin"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify inventory page title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertText",
+            "targetDescription": "Verify page title text is 'Products'",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectTitleText",
+            "assertion": "Products"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "9dfba53c-a6ec-4d49-b191-25b547262f81",
+        "title": "E2E-002: Verify all products are visible on the inventory page with name, price, description, and image",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Backpack image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem4ImgVisible"
+          },
+          {
+            "id": "s4",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Backpack title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem4TitleVisible"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Bike Light image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem0ImgVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Bike Light title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem0TitleVisible"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Bolt T-Shirt image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem1ImgVisible"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Bolt T-Shirt title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem1TitleVisible"
+          },
+          {
+            "id": "s9",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Fleece Jacket image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem5ImgVisible"
+          },
+          {
+            "id": "s10",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Fleece Jacket title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem5TitleVisible"
+          },
+          {
+            "id": "s11",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Onesie image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem2ImgVisible"
+          },
+          {
+            "id": "s12",
+            "action": "assertVisible",
+            "targetDescription": "Verify Sauce Labs Onesie title is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem2TitleVisible"
+          },
+          {
+            "id": "s13",
+            "action": "assertVisible",
+            "targetDescription": "Verify Test.allTheThings() T-Shirt image is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectItem3ImgVisible"
+          },
+          {
+            "id": "s14",
+            "action": "assertVisible",
+            "targetDescription": "Verify product sort dropdown is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectProductSortVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "6536683e-8269-4a50-9716-9cd3c7a83114",
+        "title": "E2E-003: Add Sauce Labs Backpack to cart and verify cart icon count updates",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "assertVisible",
+            "targetDescription": "Verify Add to Cart button for Sauce Labs Backpack is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectAddToCartSauceLabsBackpackSauceLabsBackpackVisible"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify shopping cart badge is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectShoppingCartVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge shows count of 1",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectShoppingCartText",
+            "assertion": "1"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "af72c6de-013d-410d-95f9-8b8e6f442b12",
+        "title": "E2E-004: Remove Sauce Labs Backpack from cart on inventory page and verify cart icon updates",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge shows count of 1",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectShoppingCartText",
+            "assertion": "1"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify Remove button for Sauce Labs Backpack is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectRemoveSauceLabsBackpackSauceLabsBackpackVisible"
+          },
+          {
+            "id": "s6",
+            "action": "tap",
+            "targetDescription": "Click Remove button for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickRemoveSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s7",
+            "action": "assertHidden",
+            "targetDescription": "Verify cart badge is no longer visible after removal",
+            "locatorHint": ".shopping_cart_badge"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify Add to Cart button is shown again for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectAddToCartSauceLabsBackpackSauceLabsBackpackVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "3b5eac90-1633-4857-b793-c10f45f07cef",
+        "title": "E2E-005: Navigate to product detail page from inventory and navigate back",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click on Sauce Labs Backpack product title",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickItem4Title"
+          },
+          {
+            "id": "s4",
+            "action": "assertVisible",
+            "targetDescription": "Verify product detail page shows item name",
+            "locatorHint": ".inventory_details_name"
+          },
+          {
+            "id": "s5",
+            "action": "assertContainsText",
+            "targetDescription": "Verify product name contains Sauce Labs Backpack",
+            "locatorHint": ".inventory_details_name",
+            "assertion": "Sauce Labs Backpack"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify product description is visible on detail page",
+            "locatorHint": ".inventory_details_desc"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify product price is visible on detail page",
+            "locatorHint": ".inventory_details_price"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify product image is visible on detail page",
+            "locatorHint": ".inventory_details_img"
+          },
+          {
+            "id": "s9",
+            "action": "tap",
+            "targetDescription": "Click Back to Products button",
+            "locatorHint": "[data-test='back-to-products']"
+          },
+          {
+            "id": "s10",
+            "action": "assertVisible",
+            "targetDescription": "Verify inventory page title is visible after navigating back",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectTitleVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "b392aa6a-b1dd-410d-84d9-cb9981367fb5",
+        "title": "E2E-006: Add product to cart from product detail page and verify cart count",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click on Sauce Labs Backpack product title to navigate to detail page",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickItem4Title"
+          },
+          {
+            "id": "s4",
+            "action": "assertContainsText",
+            "targetDescription": "Verify product name on detail page",
+            "locatorHint": ".inventory_details_name",
+            "assertion": "Sauce Labs Backpack"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart button on product detail page",
+            "locatorHint": "[data-test='add-to-cart']"
+          },
+          {
+            "id": "s6",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge shows count of 1",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "1"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify Remove button is shown on detail page after adding to cart",
+            "locatorHint": "[data-test='remove']"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "845efded-7f71-460d-b482-052828fa5f50",
+        "title": "E2E-007: Sort products by price low to high and verify order",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "assertVisible",
+            "targetDescription": "Verify product sort dropdown is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectProductSortVisible"
+          },
+          {
+            "id": "s4",
+            "action": "selectOption",
+            "targetDescription": "Select sort option: Price (low to high)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "selectProductSort",
+            "value": "lohi"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify active sort option is visible",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectActiveOptionVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertContainsText",
+            "targetDescription": "Verify active option shows Price (low to high)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectActiveOptionContainsText",
+            "assertion": "Price (low to high)"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "8bce1562-6e39-4277-a3b1-4afda217341d",
+        "title": "E2E-008: Sort products by price high to low and verify order",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "selectOption",
+            "targetDescription": "Select sort option: Price (high to low)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "selectProductSort",
+            "value": "hilo"
+          },
+          {
+            "id": "s4",
+            "action": "assertContainsText",
+            "targetDescription": "Verify active option shows Price (high to low)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectActiveOptionContainsText",
+            "assertion": "Price (high to low)"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "def9b079-4d33-4370-8fcd-29ae08d5bd31",
+        "title": "E2E-009: Sort products by name Z to A and verify order",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "selectOption",
+            "targetDescription": "Select sort option: Name (Z to A)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "selectProductSort",
+            "value": "za"
+          },
+          {
+            "id": "s4",
+            "action": "assertContainsText",
+            "targetDescription": "Verify active option shows Name (Z to A)",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectActiveOptionContainsText",
+            "assertion": "Name (Z to A)"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "9d524876-c4cc-40c7-8c8a-fca5a2a4849b",
+        "title": "E2E-010: Add multiple products to cart and verify cart count",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Bike Light",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBikeLightSauceLabsBackpack"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Bolt T-Shirt",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBoltTShirtSauceLabsBackpack"
+          },
+          {
+            "id": "s6",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge shows count of 3",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "3"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "78db7215-5540-4708-973a-cb76bc342575",
+        "title": "E2E-011: Navigate to cart page from inventory and verify cart contents",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify cart page title is visible",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify inventory item name is visible in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectInventoryItemNameVisible"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify inventory item description is visible in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectInventoryItemDescVisible"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify inventory item price is visible in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectInventoryItemPriceVisible"
+          },
+          {
+            "id": "s9",
+            "action": "assertContainsText",
+            "targetDescription": "Verify item name in cart is Sauce Labs Backpack",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectInventoryItemNameContainsText",
+            "assertion": "Sauce Labs Backpack"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "4d8b0442-d26d-4c00-b181-ec0a14951d3c",
+        "title": "E2E-012: Remove product from cart page and verify cart is empty",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify Remove button for Sauce Labs Backpack is visible in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectRemoveSauceLabsBackpackSauceLabsBackpackVisible"
+          },
+          {
+            "id": "s6",
+            "action": "tap",
+            "targetDescription": "Click Remove button for Sauce Labs Backpack in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickRemoveSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s7",
+            "action": "assertHidden",
+            "targetDescription": "Verify cart badge is no longer visible",
+            "locatorHint": ".shopping_cart_badge"
+          },
+          {
+            "id": "s8",
+            "action": "assertHidden",
+            "targetDescription": "Verify item is no longer in cart",
+            "locatorHint": ".cart_item"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "6a0a889c-1033-4797-a7cb-044974df28f2",
+        "title": "E2E-013: Continue shopping from cart page returns to inventory",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify Continue Shopping button is visible",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectContinueShoppingSauceLabsBackpackVisible"
+          },
+          {
+            "id": "s6",
+            "action": "tap",
+            "targetDescription": "Click Continue Shopping button",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickContinueShoppingSauceLabsBackpack"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify user is back on inventory page",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s8",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge still shows 1 item",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "1"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "9a70033f-5bee-4d81-b5ad-05b53956fe92",
+        "title": "E2E-014: Full checkout journey — login, add to cart, checkout, complete order",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify cart page is displayed",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s6",
+            "action": "tap",
+            "targetDescription": "Click Checkout button",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify Checkout Step One page is displayed",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "expectFirstnameVisible"
+          },
+          {
+            "id": "s8",
+            "action": "fill",
+            "targetDescription": "Fill First Name field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillFirstname",
+            "value": "John"
+          },
+          {
+            "id": "s9",
+            "action": "fill",
+            "targetDescription": "Fill Last Name field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillLastname",
+            "value": "Doe"
+          },
+          {
+            "id": "s10",
+            "action": "fill",
+            "targetDescription": "Fill Postal Code field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillPostalcode",
+            "value": "12345"
+          },
+          {
+            "id": "s11",
+            "action": "tap",
+            "targetDescription": "Click Continue button",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "clickContinue"
+          },
+          {
+            "id": "s12",
+            "action": "assertVisible",
+            "targetDescription": "Verify Checkout Step Two page is displayed",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s13",
+            "action": "assertVisible",
+            "targetDescription": "Verify item name is visible on order summary",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectInventoryItemNameVisible"
+          },
+          {
+            "id": "s14",
+            "action": "assertVisible",
+            "targetDescription": "Verify subtotal label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectSubtotalLabelVisible"
+          },
+          {
+            "id": "s15",
+            "action": "assertVisible",
+            "targetDescription": "Verify tax label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTaxLabelVisible"
+          },
+          {
+            "id": "s16",
+            "action": "assertVisible",
+            "targetDescription": "Verify total label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTotalLabelVisible"
+          },
+          {
+            "id": "s17",
+            "action": "tap",
+            "targetDescription": "Click Finish button",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "clickFinishSauceLabsBackpack"
+          },
+          {
+            "id": "s18",
+            "action": "assertVisible",
+            "targetDescription": "Verify order complete header is visible",
+            "screenName": "CheckoutCompletePage",
+            "pageObjectMethod": "expectCompleteHeaderVisible"
+          },
+          {
+            "id": "s19",
+            "action": "assertVisible",
+            "targetDescription": "Verify order complete text is visible",
+            "screenName": "CheckoutCompletePage",
+            "pageObjectMethod": "expectCompleteTextVisible"
+          },
+          {
+            "id": "s20",
+            "action": "assertVisible",
+            "targetDescription": "Verify pony express image is visible on complete page",
+            "screenName": "CheckoutCompletePage",
+            "pageObjectMethod": "expectPonyExpressVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "44b500d7-c5fa-49ae-9999-9a1eaf3bf6d2",
+        "title": "E2E-015: Navigate back to products from checkout complete page",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Checkout button",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+          },
+          {
+            "id": "s6",
+            "action": "fill",
+            "targetDescription": "Fill First Name field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillFirstname",
+            "value": "Jane"
+          },
+          {
+            "id": "s7",
+            "action": "fill",
+            "targetDescription": "Fill Last Name field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillLastname",
+            "value": "Smith"
+          },
+          {
+            "id": "s8",
+            "action": "fill",
+            "targetDescription": "Fill Postal Code field",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillPostalcode",
+            "value": "54321"
+          },
+          {
+            "id": "s9",
+            "action": "tap",
+            "targetDescription": "Click Continue button",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "clickContinue"
+          },
+          {
+            "id": "s10",
+            "action": "tap",
+            "targetDescription": "Click Finish button",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "clickFinishSauceLabsBackpack"
+          },
+          {
+            "id": "s11",
+            "action": "assertVisible",
+            "targetDescription": "Verify Back to Products button is visible",
+            "screenName": "CheckoutCompletePage",
+            "pageObjectMethod": "expectBackToProductsVisible"
+          },
+          {
+            "id": "s12",
+            "action": "tap",
+            "targetDescription": "Click Back to Products button",
+            "screenName": "CheckoutCompletePage",
+            "pageObjectMethod": "clickBackToProducts"
+          },
+          {
+            "id": "s13",
+            "action": "assertVisible",
+            "targetDescription": "Verify user is back on inventory page",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s14",
+            "action": "assertHidden",
+            "targetDescription": "Verify cart badge is empty after order completion",
+            "locatorHint": ".shopping_cart_badge"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "53353b99-928b-44f1-8514-3567e6d3ea88",
+        "title": "E2E-016: Navigate to product detail via product image click and verify details",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click on Sauce Labs Backpack product image",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickItem4Img"
+          },
+          {
+            "id": "s4",
+            "action": "assertVisible",
+            "targetDescription": "Verify product name is visible on detail page",
+            "locatorHint": ".inventory_details_name"
+          },
+          {
+            "id": "s5",
+            "action": "assertContainsText",
+            "targetDescription": "Verify product name is Sauce Labs Backpack",
+            "locatorHint": ".inventory_details_name",
+            "assertion": "Sauce Labs Backpack"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify product description is visible",
+            "locatorHint": ".inventory_details_desc"
+          },
+          {
+            "id": "s7",
+            "action": "assertVisible",
+            "targetDescription": "Verify product price is visible",
+            "locatorHint": ".inventory_details_price"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify product image is visible",
+            "locatorHint": ".inventory_details_img"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "59054be2-ce7e-4bfa-a54c-882bbd6a35d2",
+        "title": "E2E-017: Cancel checkout from step one and return to cart",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Checkout button",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify Cancel button is visible on checkout step one",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "expectCancVisible"
+          },
+          {
+            "id": "s7",
+            "action": "tap",
+            "targetDescription": "Click Cancel button on checkout step one",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "clickCanc"
+          },
+          {
+            "id": "s8",
+            "action": "assertVisible",
+            "targetDescription": "Verify user is back on cart page",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectTitleVisible"
+          },
+          {
+            "id": "s9",
+            "action": "assertVisible",
+            "targetDescription": "Verify item is still in cart",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectInventoryItemNameVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "80529171-cade-4fdb-9101-47515230bd68",
+        "title": "E2E-018: Verify cart quantity and description labels on cart page",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "assertVisible",
+            "targetDescription": "Verify cart quantity label is visible",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectCartQuantityLabelVisible"
+          },
+          {
+            "id": "s6",
+            "action": "assertVisible",
+            "targetDescription": "Verify cart description label is visible",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectCartDescLabelVisible"
+          },
+          {
+            "id": "s7",
+            "action": "assertContainsText",
+            "targetDescription": "Verify quantity label text",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectCartQuantityLabelContainsText",
+            "assertion": "QTY"
+          },
+          {
+            "id": "s8",
+            "action": "assertContainsText",
+            "targetDescription": "Verify description label text",
+            "screenName": "CartPage",
+            "pageObjectMethod": "expectCartDescLabelContainsText",
+            "assertion": "Description"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "0aa46b8a-f321-4a35-9601-8a6132baaab4",
+        "title": "E2E-019: Verify checkout step two shows payment, shipping, and total info",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Checkout button",
+            "screenName": "CartPage",
+            "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+          },
+          {
+            "id": "s6",
+            "action": "fill",
+            "targetDescription": "Fill First Name",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillFirstname",
+            "value": "Test"
+          },
+          {
+            "id": "s7",
+            "action": "fill",
+            "targetDescription": "Fill Last Name",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillLastname",
+            "value": "User"
+          },
+          {
+            "id": "s8",
+            "action": "fill",
+            "targetDescription": "Fill Postal Code",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "fillPostalcode",
+            "value": "99999"
+          },
+          {
+            "id": "s9",
+            "action": "tap",
+            "targetDescription": "Click Continue button",
+            "screenName": "CheckoutStepOnePage",
+            "pageObjectMethod": "clickContinue"
+          },
+          {
+            "id": "s10",
+            "action": "assertVisible",
+            "targetDescription": "Verify Payment Info label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectPaymentInfoLabelVisible"
+          },
+          {
+            "id": "s11",
+            "action": "assertVisible",
+            "targetDescription": "Verify Payment Info value is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectPaymentInfoValueVisible"
+          },
+          {
+            "id": "s12",
+            "action": "assertVisible",
+            "targetDescription": "Verify Shipping Info label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectShippingInfoLabelVisible"
+          },
+          {
+            "id": "s13",
+            "action": "assertVisible",
+            "targetDescription": "Verify Shipping Info value is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectShippingInfoValueVisible"
+          },
+          {
+            "id": "s14",
+            "action": "assertVisible",
+            "targetDescription": "Verify Total Info label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTotalInfoLabelVisible"
+          },
+          {
+            "id": "s15",
+            "action": "assertVisible",
+            "targetDescription": "Verify Subtotal label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectSubtotalLabelVisible"
+          },
+          {
+            "id": "s16",
+            "action": "assertVisible",
+            "targetDescription": "Verify Tax label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTaxLabelVisible"
+          },
+          {
+            "id": "s17",
+            "action": "assertVisible",
+            "targetDescription": "Verify Total label is visible",
+            "screenName": "CheckoutStepTwoPage",
+            "pageObjectMethod": "expectTotalLabelVisible"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "ab7ae4b0-b052-4c12-ae56-c0f07653667e",
+        "title": "E2E-020: Add all products to cart and verify cart count is 6",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User has valid credentials: standard_user / secret_sauce"
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to SauceDemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "tap",
+            "targetDescription": "Perform login with valid credentials",
+            "screenName": "LoginPage",
+            "pageObjectMethod": "performLogin"
+          },
+          {
+            "id": "s3",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+          },
+          {
+            "id": "s4",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Bike Light",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBikeLightSauceLabsBackpack"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Bolt T-Shirt",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsBoltTShirtSauceLabsBackpack"
+          },
+          {
+            "id": "s6",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Fleece Jacket",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsFleeceJacketSauceLabsBackpack"
+          },
+          {
+            "id": "s7",
+            "action": "tap",
+            "targetDescription": "Click Add to Cart for Sauce Labs Onesie",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickAddToCartSauceLabsOnesieSauceLabsBackpack"
+          },
+          {
+            "id": "s8",
+            "action": "assertText",
+            "targetDescription": "Verify cart badge shows count of 5",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "5"
+          },
+          {
+            "id": "s9",
+            "action": "tap",
+            "targetDescription": "Click shopping cart icon",
+            "screenName": "InventoryPage",
+            "pageObjectMethod": "clickShoppingCart"
+          },
+          {
+            "id": "s10",
+            "action": "assertCountGreaterThan",
+            "targetDescription": "Verify more than 4 cart items are present",
+            "locatorHint": ".cart_item",
+            "assertion": "4"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression"
+        ]
+      }
+    ]
+  }
+}

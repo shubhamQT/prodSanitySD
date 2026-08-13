@@ -1,0 +1,120 @@
+{
+  "id": "9dfba53c-a6ec-4d49-b191-25b547262f81",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "9dfba53c-a6ec-4d49-b191-25b547262f81",
+    "title": "E2E-002: Verify all products are visible on the inventory page with name, price, description, and image",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Backpack image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem4ImgVisible"
+      },
+      {
+        "id": "s4",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Backpack title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem4TitleVisible"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Bike Light image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem0ImgVisible"
+      },
+      {
+        "id": "s6",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Bike Light title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem0TitleVisible"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Bolt T-Shirt image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem1ImgVisible"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Bolt T-Shirt title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem1TitleVisible"
+      },
+      {
+        "id": "s9",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Fleece Jacket image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem5ImgVisible"
+      },
+      {
+        "id": "s10",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Fleece Jacket title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem5TitleVisible"
+      },
+      {
+        "id": "s11",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Onesie image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem2ImgVisible"
+      },
+      {
+        "id": "s12",
+        "action": "assertVisible",
+        "targetDescription": "Verify Sauce Labs Onesie title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem2TitleVisible"
+      },
+      {
+        "id": "s13",
+        "action": "assertVisible",
+        "targetDescription": "Verify Test.allTheThings() T-Shirt image is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectItem3ImgVisible"
+      },
+      {
+        "id": "s14",
+        "action": "assertVisible",
+        "targetDescription": "Verify product sort dropdown is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectProductSortVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

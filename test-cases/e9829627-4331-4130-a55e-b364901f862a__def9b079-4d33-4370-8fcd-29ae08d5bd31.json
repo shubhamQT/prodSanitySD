@@ -1,0 +1,52 @@
+{
+  "id": "def9b079-4d33-4370-8fcd-29ae08d5bd31",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "def9b079-4d33-4370-8fcd-29ae08d5bd31",
+    "title": "E2E-009: Sort products by name Z to A and verify order",
+    "priority": "P2",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "selectOption",
+        "targetDescription": "Select sort option: Name (Z to A)",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "selectProductSort",
+        "value": "za"
+      },
+      {
+        "id": "s4",
+        "action": "assertContainsText",
+        "targetDescription": "Verify active option shows Name (Z to A)",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectActiveOptionContainsText",
+        "assertion": "Name (Z to A)"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

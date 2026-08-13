@@ -1,0 +1,66 @@
+{
+  "id": "845efded-7f71-460d-b482-052828fa5f50",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "845efded-7f71-460d-b482-052828fa5f50",
+    "title": "E2E-007: Sort products by price low to high and verify order",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "Verify product sort dropdown is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectProductSortVisible"
+      },
+      {
+        "id": "s4",
+        "action": "selectOption",
+        "targetDescription": "Select sort option: Price (low to high)",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "selectProductSort",
+        "value": "lohi"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify active sort option is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectActiveOptionVisible"
+      },
+      {
+        "id": "s6",
+        "action": "assertContainsText",
+        "targetDescription": "Verify active option shows Price (low to high)",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectActiveOptionContainsText",
+        "assertion": "Price (low to high)"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

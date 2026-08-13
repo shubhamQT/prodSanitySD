@@ -1,0 +1,144 @@
+{
+  "id": "0aa46b8a-f321-4a35-9601-8a6132baaab4",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "0aa46b8a-f321-4a35-9601-8a6132baaab4",
+    "title": "E2E-019: Verify checkout step two shows payment, shipping, and total info",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Click Checkout button",
+        "screenName": "CartPage",
+        "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+      },
+      {
+        "id": "s6",
+        "action": "fill",
+        "targetDescription": "Fill First Name",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillFirstname",
+        "value": "Test"
+      },
+      {
+        "id": "s7",
+        "action": "fill",
+        "targetDescription": "Fill Last Name",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillLastname",
+        "value": "User"
+      },
+      {
+        "id": "s8",
+        "action": "fill",
+        "targetDescription": "Fill Postal Code",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillPostalcode",
+        "value": "99999"
+      },
+      {
+        "id": "s9",
+        "action": "tap",
+        "targetDescription": "Click Continue button",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "clickContinue"
+      },
+      {
+        "id": "s10",
+        "action": "assertVisible",
+        "targetDescription": "Verify Payment Info label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectPaymentInfoLabelVisible"
+      },
+      {
+        "id": "s11",
+        "action": "assertVisible",
+        "targetDescription": "Verify Payment Info value is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectPaymentInfoValueVisible"
+      },
+      {
+        "id": "s12",
+        "action": "assertVisible",
+        "targetDescription": "Verify Shipping Info label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectShippingInfoLabelVisible"
+      },
+      {
+        "id": "s13",
+        "action": "assertVisible",
+        "targetDescription": "Verify Shipping Info value is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectShippingInfoValueVisible"
+      },
+      {
+        "id": "s14",
+        "action": "assertVisible",
+        "targetDescription": "Verify Total Info label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectTotalInfoLabelVisible"
+      },
+      {
+        "id": "s15",
+        "action": "assertVisible",
+        "targetDescription": "Verify Subtotal label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectSubtotalLabelVisible"
+      },
+      {
+        "id": "s16",
+        "action": "assertVisible",
+        "targetDescription": "Verify Tax label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectTaxLabelVisible"
+      },
+      {
+        "id": "s17",
+        "action": "assertVisible",
+        "targetDescription": "Verify Total label is visible",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "expectTotalLabelVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "53353b99-928b-44f1-8514-3567e6d3ea88",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "53353b99-928b-44f1-8514-3567e6d3ea88",
+    "title": "E2E-016: Navigate to product detail via product image click and verify details",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click on Sauce Labs Backpack product image",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickItem4Img"
+      },
+      {
+        "id": "s4",
+        "action": "assertVisible",
+        "targetDescription": "Verify product name is visible on detail page",
+        "locatorHint": ".inventory_details_name"
+      },
+      {
+        "id": "s5",
+        "action": "assertContainsText",
+        "targetDescription": "Verify product name is Sauce Labs Backpack",
+        "locatorHint": ".inventory_details_name",
+        "assertion": "Sauce Labs Backpack"
+      },
+      {
+        "id": "s6",
+        "action": "assertVisible",
+        "targetDescription": "Verify product description is visible",
+        "locatorHint": ".inventory_details_desc"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Verify product price is visible",
+        "locatorHint": ".inventory_details_price"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Verify product image is visible",
+        "locatorHint": ".inventory_details_img"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

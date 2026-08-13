@@ -1,0 +1,80 @@
+{
+  "id": "80529171-cade-4fdb-9101-47515230bd68",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "80529171-cade-4fdb-9101-47515230bd68",
+    "title": "E2E-018: Verify cart quantity and description labels on cart page",
+    "priority": "P2",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify cart quantity label is visible",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectCartQuantityLabelVisible"
+      },
+      {
+        "id": "s6",
+        "action": "assertVisible",
+        "targetDescription": "Verify cart description label is visible",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectCartDescLabelVisible"
+      },
+      {
+        "id": "s7",
+        "action": "assertContainsText",
+        "targetDescription": "Verify quantity label text",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectCartQuantityLabelContainsText",
+        "assertion": "QTY"
+      },
+      {
+        "id": "s8",
+        "action": "assertContainsText",
+        "targetDescription": "Verify description label text",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectCartDescLabelContainsText",
+        "assertion": "Description"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

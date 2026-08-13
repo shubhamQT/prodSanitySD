@@ -1,0 +1,78 @@
+{
+  "id": "af72c6de-013d-410d-95f9-8b8e6f442b12",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "af72c6de-013d-410d-95f9-8b8e6f442b12",
+    "title": "E2E-004: Remove Sauce Labs Backpack from cart on inventory page and verify cart icon updates",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "assertText",
+        "targetDescription": "Verify cart badge shows count of 1",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectShoppingCartText",
+        "assertion": "1"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify Remove button for Sauce Labs Backpack is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectRemoveSauceLabsBackpackSauceLabsBackpackVisible"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Click Remove button for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickRemoveSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s7",
+        "action": "assertHidden",
+        "targetDescription": "Verify cart badge is no longer visible after removal",
+        "locatorHint": ".shopping_cart_badge"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Verify Add to Cart button is shown again for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectAddToCartSauceLabsBackpackSauceLabsBackpackVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

@@ -1,1 +1,26 @@
-{}
+{
+  "e2e007SortProductsByPriceLowToHighAndVerifyOrder": {
+    "selectSortOptionPriceLowToHigh": "lohi"
+  },
+  "e2e008SortProductsByPriceHighToLowAndVerifyOrder": {
+    "selectSortOptionPriceHighToLow": "hilo"
+  },
+  "e2e009SortProductsByNameZToAAndVerifyOrder": {
+    "selectSortOptionNameZToA": "za"
+  },
+  "e2e014FullCheckoutJourneyLoginAddToCartCheckoutCompleteOrder": {
+    "fillFirstNameField": "John",
+    "fillLastNameField": "Doe",
+    "fillPostalCodeField": "12345"
+  },
+  "e2e015NavigateBackToProductsFromCheckoutCompletePage": {
+    "fillFirstNameField": "Jane",
+    "fillLastNameField": "Smith",
+    "fillPostalCodeField": "54321"
+  },
+  "e2e019VerifyCheckoutStepTwoShowsPaymentShippingAndTotalInfo": {
+    "fillFirstName": "Test",
+    "fillLastName": "User",
+    "fillPostalCode": "99999"
+  }
+}

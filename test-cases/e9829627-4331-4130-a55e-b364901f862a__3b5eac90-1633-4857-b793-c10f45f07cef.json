@@ -1,0 +1,87 @@
+{
+  "id": "3b5eac90-1633-4857-b793-c10f45f07cef",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "3b5eac90-1633-4857-b793-c10f45f07cef",
+    "title": "E2E-005: Navigate to product detail page from inventory and navigate back",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click on Sauce Labs Backpack product title",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickItem4Title"
+      },
+      {
+        "id": "s4",
+        "action": "assertVisible",
+        "targetDescription": "Verify product detail page shows item name",
+        "locatorHint": ".inventory_details_name"
+      },
+      {
+        "id": "s5",
+        "action": "assertContainsText",
+        "targetDescription": "Verify product name contains Sauce Labs Backpack",
+        "locatorHint": ".inventory_details_name",
+        "assertion": "Sauce Labs Backpack"
+      },
+      {
+        "id": "s6",
+        "action": "assertVisible",
+        "targetDescription": "Verify product description is visible on detail page",
+        "locatorHint": ".inventory_details_desc"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Verify product price is visible on detail page",
+        "locatorHint": ".inventory_details_price"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Verify product image is visible on detail page",
+        "locatorHint": ".inventory_details_img"
+      },
+      {
+        "id": "s9",
+        "action": "tap",
+        "targetDescription": "Click Back to Products button",
+        "locatorHint": "[data-test='back-to-products']"
+      },
+      {
+        "id": "s10",
+        "action": "assertVisible",
+        "targetDescription": "Verify inventory page title is visible after navigating back",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectTitleVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

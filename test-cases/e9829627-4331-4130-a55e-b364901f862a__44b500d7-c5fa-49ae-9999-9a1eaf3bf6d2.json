@@ -1,0 +1,122 @@
+{
+  "id": "44b500d7-c5fa-49ae-9999-9a1eaf3bf6d2",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "44b500d7-c5fa-49ae-9999-9a1eaf3bf6d2",
+    "title": "E2E-015: Navigate back to products from checkout complete page",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Click Checkout button",
+        "screenName": "CartPage",
+        "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+      },
+      {
+        "id": "s6",
+        "action": "fill",
+        "targetDescription": "Fill First Name field",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillFirstname",
+        "value": "Jane"
+      },
+      {
+        "id": "s7",
+        "action": "fill",
+        "targetDescription": "Fill Last Name field",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillLastname",
+        "value": "Smith"
+      },
+      {
+        "id": "s8",
+        "action": "fill",
+        "targetDescription": "Fill Postal Code field",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "fillPostalcode",
+        "value": "54321"
+      },
+      {
+        "id": "s9",
+        "action": "tap",
+        "targetDescription": "Click Continue button",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "clickContinue"
+      },
+      {
+        "id": "s10",
+        "action": "tap",
+        "targetDescription": "Click Finish button",
+        "screenName": "CheckoutStepTwoPage",
+        "pageObjectMethod": "clickFinishSauceLabsBackpack"
+      },
+      {
+        "id": "s11",
+        "action": "assertVisible",
+        "targetDescription": "Verify Back to Products button is visible",
+        "screenName": "CheckoutCompletePage",
+        "pageObjectMethod": "expectBackToProductsVisible"
+      },
+      {
+        "id": "s12",
+        "action": "tap",
+        "targetDescription": "Click Back to Products button",
+        "screenName": "CheckoutCompletePage",
+        "pageObjectMethod": "clickBackToProducts"
+      },
+      {
+        "id": "s13",
+        "action": "assertVisible",
+        "targetDescription": "Verify user is back on inventory page",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectTitleVisible"
+      },
+      {
+        "id": "s14",
+        "action": "assertHidden",
+        "targetDescription": "Verify cart badge is empty after order completion",
+        "locatorHint": ".shopping_cart_badge"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

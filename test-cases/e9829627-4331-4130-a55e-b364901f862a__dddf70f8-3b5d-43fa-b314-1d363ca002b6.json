@@ -1,0 +1,67 @@
+{
+  "id": "dddf70f8-3b5d-43fa-b314-1d363ca002b6",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "dddf70f8-3b5d-43fa-b314-1d363ca002b6",
+    "title": "E2E-001: Login with valid credentials and verify redirect to inventory page",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Fill username field",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "fillUsername",
+        "value": "standard_user"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Fill password field",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "fillPassword",
+        "value": "secret_sauce"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click Login button",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "clickLogin"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify inventory page title is visible",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectTitleVisible"
+      },
+      {
+        "id": "s6",
+        "action": "assertText",
+        "targetDescription": "Verify page title text is 'Products'",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectTitleText",
+        "assertion": "Products"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

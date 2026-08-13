@@ -1,0 +1,85 @@
+{
+  "id": "59054be2-ce7e-4bfa-a54c-882bbd6a35d2",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "59054be2-ce7e-4bfa-a54c-882bbd6a35d2",
+    "title": "E2E-017: Cancel checkout from step one and return to cart",
+    "priority": "P2",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Click Checkout button",
+        "screenName": "CartPage",
+        "pageObjectMethod": "clickCheckoutSauceLabsBackpack"
+      },
+      {
+        "id": "s6",
+        "action": "assertVisible",
+        "targetDescription": "Verify Cancel button is visible on checkout step one",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "expectCancVisible"
+      },
+      {
+        "id": "s7",
+        "action": "tap",
+        "targetDescription": "Click Cancel button on checkout step one",
+        "screenName": "CheckoutStepOnePage",
+        "pageObjectMethod": "clickCanc"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Verify user is back on cart page",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectTitleVisible"
+      },
+      {
+        "id": "s9",
+        "action": "assertVisible",
+        "targetDescription": "Verify item is still in cart",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectInventoryItemNameVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

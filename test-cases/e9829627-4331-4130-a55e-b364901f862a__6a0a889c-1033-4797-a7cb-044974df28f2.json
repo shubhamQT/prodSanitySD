@@ -1,0 +1,78 @@
+{
+  "id": "6a0a889c-1033-4797-a7cb-044974df28f2",
+  "testPlanId": "e9829627-4331-4130-a55e-b364901f862a",
+  "requirementId": "397f96ea-480b-48dd-99ed-2fcea12a8b5c",
+  "suiteName": "PS-001 — Product Listing & Add to Cart E2E",
+  "case": {
+    "id": "6a0a889c-1033-4797-a7cb-044974df28f2",
+    "title": "E2E-013: Continue shopping from cart page returns to inventory",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User has valid credentials: standard_user / secret_sauce"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to SauceDemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Perform login with valid credentials",
+        "screenName": "LoginPage",
+        "pageObjectMethod": "performLogin"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart for Sauce Labs Backpack",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickAddToCartSauceLabsBackpackSauceLabsBackpack"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Click shopping cart icon",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "clickShoppingCart"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Verify Continue Shopping button is visible",
+        "screenName": "CartPage",
+        "pageObjectMethod": "expectContinueShoppingSauceLabsBackpackVisible"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Click Continue Shopping button",
+        "screenName": "CartPage",
+        "pageObjectMethod": "clickContinueShoppingSauceLabsBackpack"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Verify user is back on inventory page",
+        "screenName": "InventoryPage",
+        "pageObjectMethod": "expectTitleVisible"
+      },
+      {
+        "id": "s8",
+        "action": "assertText",
+        "targetDescription": "Verify cart badge still shows 1 item",
+        "locatorHint": ".shopping_cart_badge",
+        "assertion": "1"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

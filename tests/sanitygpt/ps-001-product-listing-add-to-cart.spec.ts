@@ -33,7 +33,6 @@ test('E2E-001: Login with valid credentials and verify redirect to inventory pag
   });
 });
 
-
 test('E2E-003: Add Sauce Labs Backpack to cart and verify cart icon count updates', { tag: ["@e2e","@regression","@P0","@case-6536683e-8269-4a50-9716-9cd3c7a83114"] }, async ({ page, loginPage, inventoryPage }) => {
   await test.step('Before — User has valid credentials: standard_user / secret_sauce', async () => {
     await page.goto(env.baseURL);
@@ -45,7 +44,7 @@ test('E2E-003: Add Sauce Labs Backpack to cart and verify cart icon count update
   });
 
   await test.step('Click — Perform login with valid credentials', async () => {
-    await loginPage.performLogin();
+    await loginPage.performLogin(env.username, env.password);
   });
 
   await test.step('Assert visible — Verify Add to Cart button for Sauce Labs Backpack is visible', async () => {

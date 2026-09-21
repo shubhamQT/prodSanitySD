@@ -1,0 +1,48 @@
+{
+  "cookies": [
+    {
+      "name": "automationai_session",
+      "value": "eyJ1c2VySWQiOiI1ZGQ2OTNiNC02ODRmLTQ4YTctODQ5My0yMjcwNjhkYmMwNzUiLCJleHAiOjE3OTA5NDQ5OTMsInN2IjozOX0.GmlrpavIWOtVkpdBGLCdQ1eFV5usw4v3x01udXwNPp8",
+      "domain": "autonix.qtsolvdev.com",
+      "path": "/",
+      "expires": 1790944993.456591,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "session-username",
+      "value": "standard_user",
+      "domain": "www.saucedemo.com",
+      "path": "/",
+      "expires": 1789989655,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.saucedemo.com",
+      "localStorage": [
+        {
+          "name": "backtrace-guid",
+          "value": "58510448-0c43-41b8-afd2-3e3e337c542f"
+        },
+        {
+          "name": "backtrace-last-active",
+          "value": "1789989047102"
+        }
+      ]
+    },
+    {
+      "origin": "https://autonix.qtsolvdev.com",
+      "localStorage": [
+        {
+          "name": "automationai_selected_org_id",
+          "value": "8391c6d6-c7a7-41e0-94dd-c69bbf706119"
+        }
+      ]
+    }
+  ]
+}

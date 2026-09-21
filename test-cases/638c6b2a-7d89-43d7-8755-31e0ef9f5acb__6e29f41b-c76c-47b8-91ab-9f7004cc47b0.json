@@ -1,0 +1,31 @@
+{
+  "id": "6e29f41b-c76c-47b8-91ab-9f7004cc47b0",
+  "testPlanId": "638c6b2a-7d89-43d7-8755-31e0ef9f5acb",
+  "requirementId": "116afb2e-f3d0-47d8-a23a-1533f75e0775",
+  "suiteName": "SSO login",
+  "case": {
+    "id": "6e29f41b-c76c-47b8-91ab-9f7004cc47b0",
+    "title": "test sso login flow on prod",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "step1",
+        "action": "openUrl",
+        "targetDescription": "URL",
+        "value": "{{env.baseURL}}"
+      },
+      {
+        "id": "step2",
+        "action": "assertVisible",
+        "targetDescription": "product",
+        "screenName": "Inventory",
+        "pageObjectMethod": "verifyOnPage"
+      }
+    ],
+    "tags": []
+  }
+}

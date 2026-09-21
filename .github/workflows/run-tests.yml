@@ -28,14 +28,6 @@ on:
       run_id:
         description: "Autonix run ID"
         required: true
-      auth_state_url:
-        description: "URL to fetch Playwright storageState JSON (auth file)"
-        required: false
-        default: ""
-      auth_state_filename:
-        description: "Filename to write inside .auth/ (e.g. auth.json)"
-        required: false
-        default: ""
 
 permissions:
   contents: read
@@ -61,13 +53,6 @@ jobs:
 
       - name: Install dependencies
         run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
-
-      - name: Write auth state
-        if: ${{ inputs.auth_state_url != '' && inputs.auth_state_filename != '' }}
-        run: |
-          mkdir -p .auth
-          RESPONSE=$(curl -sf "${{ inputs.auth_state_url }}")
-          echo "$RESPONSE" | jq -r '.content' > ".auth/${{ inputs.auth_state_filename }}"
 
       - run: npx playwright install --with-deps chromium
 
